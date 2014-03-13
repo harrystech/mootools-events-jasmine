@@ -1,6 +1,6 @@
-# Mootools Event Spies for Jasmine Tests
+# MooTools Event Spies for Jasmine Tests
 
-This is a Jasmine helper for testing Mootools events. It builds on the `runs()` and `waitsFor()` methods from Jasmine for handling
+This is a Jasmine helper for testing MooTools events. It builds on the `runs()` and `waitsFor()` methods from Jasmine for handling
 asynchronous code.
 
 See our [introductory blog post](http://engineering.harrys.com/2014/03/13/async-testing-jasmine-mootools.html) for some background.
