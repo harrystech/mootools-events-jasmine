@@ -27,6 +27,7 @@ Then wait for the event to have been triggered (last argument is a timeout):
 
     waitsForEvent(object, 'eventName', 500);
 
+
 If you want to test side effects of the event, you will need to also put that in
 a `runs` block:
 
@@ -34,6 +35,15 @@ a `runs` block:
         expect(object.state).toEqual('done');
     });
 
+You can retrieve the data of the last event (per event type) with
+
+    var data = lastEventData(object, 'eventName');
+    expect(data.foo).toEqual('bar');
+
+You can also expect events to have been triggered or not:
+
+    expect(object).toHaveTriggered('working');
+    expect(object).toNotHaveTriggered('complete');
 
 ## Example:
 
@@ -58,6 +68,8 @@ a `runs` block:
         runs(function() {
             expect(jasmine.Ajax.requests.mostRecent().url).toEqual("/some/endpoint");
             expect(order.status).toEqual('queued');
+            var data = lastEventData(order, 'queued');
+            expect(data.job_id).toEqual("someId");
         });
     });
 
